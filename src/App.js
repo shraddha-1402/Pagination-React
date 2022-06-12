@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { Pagination } from "./Pagination";
+
+const URL = "https://jsonplaceholder.typicode.com/posts";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetch(URL)
+      .then((response) => {
+        if (response.ok) return response.json();
+        throw new Error("something went wrong while requesting posts");
+      })
+      .then((posts) => setPosts(posts))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Pagination pageDataLimit={5} posts={posts} />
     </div>
   );
 }

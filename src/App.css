@@ -1,38 +1,64 @@
-.App {
+.heading {
   text-align: center;
+  margin: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.posts-container {
+  display: grid;
+  grid-template-columns: 18rem 18rem 18rem;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.post {
+  max-width: 16rem;
+  text-align: center;
+  padding: 1rem;
+  margin: 0.5rem;
+  color: "#c4c4c4";
+  border: 1px solid purple;
+  border-radius: 0.25rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page-num-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.page-change-btn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  background-color: purple;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.disabled {
+  cursor: not-allowed;
+  background-color: gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page-number {
+  border: 1px solid grey;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: 0 0.25rem;
+  cursor: pointer;
+}
+
+.active {
+  border-color: purple;
+}
+
+.list-style-none {
+  list-style: none;
+  padding-inline-start: 0;
 }
